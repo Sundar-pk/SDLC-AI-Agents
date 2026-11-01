@@ -1,0 +1,74 @@
+{
+  "server": { "host": "0.0.0.0", "port": 8080, "dataDir": "../data", "requireUser": false },
+
+  "llm": {
+    "runner": "claude",
+    "model": "claude-sonnet",
+    "stageModels": {
+      "spec": "claude-sonnet",
+      "coder": "claude-sonnet"
+    },
+    "vision": true,
+    "timeoutMinutes": 20,
+    "env": {
+      "ANTHROPIC_BASE_URL": "${env:LLM_BASE_URL}",
+      "ANTHROPIC_AUTH_TOKEN": "${env:LLM_API_KEY}"
+    },
+    "budgets": { "perStageTokens": 150000, "perRunTokens": 1500000 }
+  },
+
+  "mcp": {
+    "servers": {
+      "atlassian": { "url": "${env:MCP_ATLASSIAN_URL}", "token": "${env:MCP_ATLASSIAN_TOKEN?}" },
+      "scm":       { "url": "${env:MCP_SCM_URL}",       "token": "${env:MCP_SCM_TOKEN?}" }
+    },
+    "tools": {
+      "jira.get_issue":                { "server": "atlassian", "tool": "jira_get_issue",        "args": { "issueKey": "issue_key" } },
+      "jira.get_comments":             { "server": "atlassian", "tool": "jira_get_comments",     "args": { "issueKey": "issue_key" } },
+      "jira.get_attachments":          { "server": "atlassian", "tool": "jira_get_attachments",  "args": { "issueKey": "issue_key" } },
+      "jira.download_attachment":      { "server": "atlassian", "tool": "jira_download_attachment", "args": { "issueKey": "issue_key", "attachmentId": "attachment_id" } },
+      "jira.get_linked_issues":        { "server": "atlassian", "tool": "jira_get_links",        "args": { "issueKey": "issue_key" } },
+      "jira.add_comment":              { "server": "atlassian", "tool": "jira_add_comment",      "args": { "issueKey": "issue_key", "body": "comment" } },
+      "confluence.get_page":           { "server": "atlassian", "tool": "confluence_get_page",   "args": { "pageId": "page_id" } },
+      "bitbucket.get_diff":            { "server": "scm",       "tool": "bitbucket_get_diff" },
+      "bitbucket.create_pull_request": { "server": "scm",       "tool": "bitbucket_create_pull_request", "args": { "fromBranch": "source_branch", "toBranch": "destination_branch" } }
+    }
+  },
+
+  "git": {
+    "authorName": "SDLC Agents",
+    "authorEmail": "sdlc-agents@your-company.example",
+    "workspacesDir": "../workspaces",
+    "auth": { "type": "bearer", "token": "${env:GIT_TOKEN}" }
+  },
+
+  "repos": [
+    {
+      "name": "orders-service",
+      "project": "SHOP",
+      "url": "https://bitbucket.your-company.example/scm/shop/orders-service.git",
+      "baseBranch": "main"
+    },
+    {
+      "name": "shop-web",
+      "project": "SHOP",
+      "url": "https://bitbucket.your-company.example/scm/shop/shop-web.git",
+      "baseBranch": "develop"
+    }
+  ],
+
+  "jira": {
+    "workTypes": {
+      "bug": ["Bug", "Defect", "Incident"],
+      "change": ["Change Request", "Change", "Improvement"]
+    }
+  },
+
+  "quality": {
+    "mutationThreshold": 70,
+    "commands": []
+  },
+
+  "attachments": { "maxCount": 10, "maxBytes": 5242880 },
+  "index": { "mapTokens": 6000, "contextFiles": 15 }
+}

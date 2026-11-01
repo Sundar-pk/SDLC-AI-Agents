@@ -1,0 +1,7 @@
+**/node_modules
+**/dist
+data
+workspaces
+config/.env
+config/agents.config.json
+.git

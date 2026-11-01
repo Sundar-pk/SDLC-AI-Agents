@@ -1,0 +1,16 @@
+#!/bin/sh
+# Pretends StrykerJS ran so the rehearsal needs no internet. Everything else goes to the real npx.
+REAL_NPX=$(PATH=$(echo "$PATH" | sed "s#$(dirname "$0"):##") command -v npx)
+case "$*" in
+  *stryker*) mkdir -p reports/mutation
+    cat > reports/mutation/mutation.json <<'J'
+{"files":{"src/total.ts":{"mutants":[
+ {"status":"Killed","mutatorName":"ArithmeticOperator","location":{"start":{"line":6}},"replacement":"-"},
+ {"status":"Killed","mutatorName":"ArithmeticOperator","location":{"start":{"line":6}},"replacement":"/"},
+ {"status":"Killed","mutatorName":"ConditionalExpression","location":{"start":{"line":7}}},
+ {"status":"Killed","mutatorName":"EqualityOperator","location":{"start":{"line":7}}},
+ {"status":"Survived","mutatorName":"StringLiteral","location":{"start":{"line":4}},"replacement":"\"\""}]}}}
+J
+    echo "Mutation score: 80%"; exit 0;;
+  *) exec "$REAL_NPX" "$@";;
+esac

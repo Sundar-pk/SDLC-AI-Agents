@@ -1,0 +1,14 @@
+services:
+  sdlc-agents:
+    build:
+      context: .
+      args:
+        INSTALL_JAVA: ""          # set to 1 for Java/Maven repos
+        AGENT_CLI_PACKAGE: ""     # e.g. @anthropic-ai/claude-code
+    ports: ["8080:8080"]
+    env_file: ./config/.env
+    volumes:
+      - ./config/agents.config.json:/app/config/agents.config.json:ro
+      - ./data:/app/data
+      - ./workspaces:/app/workspaces
+    restart: unless-stopped

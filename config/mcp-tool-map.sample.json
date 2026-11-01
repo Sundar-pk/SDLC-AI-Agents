@@ -1,0 +1,9 @@
+{
+  "jira.get_issue":            { "tool": "jira_get_issue",        "args": { "issueKey": "issue_key" } },
+  "jira.get_comments":         { "tool": "jira_get_comments",     "args": { "issueKey": "issue_key" } },
+  "jira.get_attachments":      { "tool": "jira_get_attachments",  "args": { "issueKey": "issue_key" } },
+  "jira.get_linked_issues":    { "tool": "jira_get_links",        "args": { "issueKey": "issue_key" } },
+  "jira.add_comment":          { "tool": "jira_add_comment",      "args": { "issueKey": "issue_key", "body": "comment" } },
+  "bitbucket.get_diff":        "bitbucket_get_diff",
+  "bitbucket.create_pull_request": { "tool": "bitbucket_create_pull_request", "args": { "fromBranch": "source_branch", "toBranch": "destination_branch", "description": "description" } }
+}

@@ -1,0 +1,1 @@
+{ "name": "cart-service", "version": "1.0.0", "type": "module", "scripts": { "test": "node scripts/run-tests.mjs" }, "devDependencies": { "@stryker-mutator/core": "^8.0.0" } }
