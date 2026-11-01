@@ -9,7 +9,7 @@ import { findInIndex, grepText } from './indexer/render.js';
 import { createHttpMcpCaller, type McpToolInfo } from './mcp-client.js';
 import { importMcpJson, proposeToolMap } from './mcp-setup.js';
 
-const HELP = `2S IT SDLC agents: command line
+const HELP = `SDLC agents: command line
 
   find <term>            Search symbols and files in the current repository (used by the agents)
   index [dir]            Build or refresh the code index for a repository

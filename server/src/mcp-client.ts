@@ -53,7 +53,7 @@ export function createHttpMcpCaller(opts: HttpMcpOptions): McpCaller {
   let connecting: Promise<Client> | null = null;
 
   const connect = async (): Promise<Client> => {
-    const c = new Client({ name: '2s-sdlc-agents', version: '0.2.0' });
+    const c = new Client({ name: 'sdlc-agents', version: '0.2.0' });
     const headers: Record<string, string> = { ...(opts.headers ?? {}) };
     if (opts.token && !Object.keys(headers).some((h) => h.toLowerCase() === 'authorization')) headers.Authorization = `Bearer ${opts.token}`;
     const transport = new StreamableHTTPClientTransport(new URL(opts.url), { requestInit: { headers } });

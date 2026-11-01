@@ -1,4 +1,4 @@
-# 2S IT SDLC agents. Build:  docker build -t 2s-sdlc-agents .
+# SDLC agents. Build:  docker build -t sdlc-agents .
 # Optional build args (leave empty to skip):
 #   INSTALL_JAVA=1                 adds a JDK and Maven (needed to run PIT on Java repos)
 #   AGENT_CLI_PACKAGE=<npm pkg>    installs the agent CLI, e.g. @anthropic-ai/claude-code or opencode-ai

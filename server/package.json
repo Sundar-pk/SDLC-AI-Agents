@@ -1,9 +1,9 @@
 {
-  "name": "2s-sdlc-agents-server",
+  "name": "sdlc-agents-server",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "2S IT proposed SDLC agents: Node.js control plane (orchestrator, runner, gates, MCP broker, API)",
+  "description": "SDLC agents: Node.js control plane (orchestrator, runner, gates, MCP broker, API)",
   "engines": {
     "node": ">=20"
   },

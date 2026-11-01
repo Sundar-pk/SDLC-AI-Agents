@@ -177,7 +177,7 @@ export function intakeHandler(deps: StageDeps): StageHandler {
     if (data.ambiguous === true) {
       const questions = Array.isArray(data.questions) ? data.questions.map(String) : [];
       const body = [
-        '[2S IT SDLC agents] This ticket needs clarification before work can start:',
+        '[SDLC agents] This ticket needs clarification before work can start:',
         ...questions.map((q, i) => `${i + 1}. ${q}`),
       ].join('\n');
       await deps.broker.call(run.id, 'intake', 'jira.add_comment', { issueKey: key, body });

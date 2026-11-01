@@ -1,4 +1,4 @@
-# 2S IT SDLC agents: shared rules
+# SDLC agents: shared rules
 
 These rules apply to every role. Every agent tool (Claude CLI, opencode, or any tool that can read a file and edit files) follows this same file. Do not rely on features that exist in only one tool.
 

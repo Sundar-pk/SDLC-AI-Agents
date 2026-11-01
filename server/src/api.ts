@@ -185,7 +185,7 @@ export function buildApp(d: ApiDeps): FastifyInstance {
   app.get('/*', async (req, reply) => {
     if (req.url.startsWith('/api/')) return reply.status(404).send({ error: 'Not found' });
     if (!existsSync(join(ui, 'index.html'))) {
-      return reply.status(200).type('text/plain').send('2S IT SDLC agents API is running. The web UI is not built yet (cd ui && npm install && npm run build).');
+      return reply.status(200).type('text/plain').send('SDLC agents API is running. The web UI is not built yet (cd ui && npm install && npm run build).');
     }
     const path = decodeURIComponent(req.url.split('?')[0]!);
     let file = resolve(ui, `.${path}`);

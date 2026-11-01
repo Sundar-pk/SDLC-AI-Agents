@@ -1,5 +1,5 @@
 /**
- * The 2S IT pipeline definition: Jira ticket -> draft merge request, then the run stops.
+ * The SDLC pipeline definition: Jira ticket -> draft merge request, then the run stops.
  * Mirrors page 1 of the design canvas. Stage ids are stable API; the UI renders from /api/pipeline.
  */
 

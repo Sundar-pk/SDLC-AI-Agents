@@ -1,4 +1,4 @@
-# 2S IT proposed SDLC agents
+# SDLC agents
 
 A Jira ticket goes in, a **draft merge request** comes out. TDD-centred, with mutation testing and two human gates. The run stops when the draft MR exists.
 

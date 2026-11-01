@@ -14,7 +14,7 @@ type Page = 'runs' | 'new' | 'setup';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="top">
-      <div class="brand"><span class="mark"></span><b>2S IT</b> <span>SDLC agents</span></div>
+      <div class="brand"><span class="mark"></span><b>SDLC</b> <span>agents</span></div>
       <nav>
         <button [class.on]="page() === 'runs'" (click)="page.set('runs')">Runs</button>
         <button [class.on]="page() === 'setup'" (click)="page.set('setup')">Setup check</button>

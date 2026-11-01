@@ -43,7 +43,7 @@ async function main(): Promise<void> {
 
   const app = buildApp({ config, store, trace, orchestrator, doctor: () => runDoctor(config, { git }) });
   await app.listen({ host: config.host, port: config.port });
-  console.log(`2S IT SDLC agents on http://${config.host}:${config.port}  (agent tool: ${config.runner.kind}, MCP servers: ${Object.keys(callers).join(', ') || 'none'})`);
+  console.log(`SDLC agents on http://${config.host}:${config.port}  (agent tool: ${config.runner.kind}, MCP servers: ${Object.keys(callers).join(', ') || 'none'})`);
   if (!config.configFile) console.log('No config/agents.config.json found. Run "npm run cli -- init" to create one.');
   orchestrator.resumePending();
 
